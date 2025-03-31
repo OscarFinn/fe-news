@@ -1,9 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import { getArticle } from "../api";
 
 export default function ArticlePage() {
+  const nav = useNavigate();
+
   const [article, setArticle] = useState({});
   const [error, setError] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -45,6 +47,7 @@ export default function ArticlePage() {
   });
   return (
     <section className="article-page">
+      <button onClick={() => nav(-1)}>Back</button>
       <img src={article.article_img_url} />
       <h2>{article.title}</h2>
       <p>
