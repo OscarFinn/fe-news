@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   const { user } = useContext(UserContext);
-  console.log(user);
   return (
     <header>
       <button>Nav</button>

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { getArticle } from "../api";
 
 import CommentList from "./CommentList";
+import { handleDates } from "../utils";
 
 export default function ArticlePage() {
   const nav = useNavigate();
@@ -40,13 +41,7 @@ export default function ArticlePage() {
       </p>
     );
   }
-  const fullDate = new Date(article.created_at);
-  const date = fullDate.toLocaleDateString();
-  const time = fullDate.toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-  });
+  const { date, time } = handleDates(article.created_at);
   return (
     <section className="article-page">
       <div className="article">
