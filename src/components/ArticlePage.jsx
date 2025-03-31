@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 
 import { getArticle } from "../api";
 
+import CommentList from "./CommentList";
+
 export default function ArticlePage() {
   const nav = useNavigate();
 
@@ -47,14 +49,20 @@ export default function ArticlePage() {
   });
   return (
     <section className="article-page">
-      <button onClick={() => nav(-1)}>Back</button>
-      <img src={article.article_img_url} />
-      <h2>{article.title}</h2>
-      <p>
-        posted on {date} at {time} by {article.author}
-      </p>
-      <p>{article.body}</p>
-      <p>{article.votes}</p>
+      <div className="article">
+        <button onClick={() => nav(-1)}>Back</button>
+        <img src={article.article_img_url} />
+        <h2>{article.title}</h2>
+        <p>
+          posted on {date} at {time} by {article.author}
+        </p>
+        <p>{article.body}</p>
+        <p>{article.votes}</p>
+      </div>
+      <div className="article-commments">
+        <h2>Comments ({article.comment_count})</h2>
+        <CommentList article_id={article.article_id} />
+      </div>
     </section>
   );
 }
