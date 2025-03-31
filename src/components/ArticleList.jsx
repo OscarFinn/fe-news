@@ -17,7 +17,6 @@ export default function ArticleList() {
   }, []);
   return (
     <section className="article-list">
-      <h2>This is where the articles will be listed</h2>
       {articles.map((article) => {
         return <ArticleCard article={article} />;
       })}
