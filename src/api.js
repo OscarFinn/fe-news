@@ -2,7 +2,6 @@ import axios from "axios";
 
 const apiClient = axios.create({
   baseURL: "https://be-news-olwx.onrender.com/api",
-  timeout: 1000,
 });
 
 export function getArticles() {
