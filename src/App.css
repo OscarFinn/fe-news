@@ -1,3 +1,9 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -42,10 +48,51 @@
 }
 
 Header {
-  border: 3px solid red;
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-columns: 1fr 6fr 1fr;
   width: 90vw;
+  background-color: inherit;
+  margin: auto;
+  justify-content: center;
+  max-width: 1200px;
+  margin-bottom: 4em;
+  padding: 0;
+}
+Header button {
+  height: auto;
+}
+Header h1 {
+  color: #d20035;
+  /* text-shadow: 0 0 10px #c30031; */
+  transition: text-shadow 0.3s ease-in-out;
+  margin-top: 0;
+  font-size: calc(32px + 1.5vw);
+  span {
+    font-size: calc(40px + 1.5vw);
+  }
+}
+Header h1:hover {
+  text-shadow: 0 0 10px #c30031;
+  /* text-shadow: 0 0 15px #830000, 0 0 30px #6b0101, 0 0 50px #000000;*/
+}
+Header img {
+  border-radius: 50%;
+  border: 2px solid black;
+  width: calc(50px + 2vw);
+  height: calc(50px + 2vw);
+  transition: box-shadow 0.3s ease-in-out;
+  align-self: top;
+  margin-top: calc(8px - 0.4vw);
+}
+
+Header img:hover {
+  box-shadow: 0 0 10px #c30031;
+}
+
+Header button {
+  height: calc(50px + 2vw);
+  width: calc(50px + 2vw);
+  margin-top: calc(8px - 0.4vw);
 }
 ul {
   padding: 0;
@@ -55,26 +102,34 @@ li {
 }
 
 .article-list {
-  border: 3px solid blue;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0 5w;
+  border-radius: 5%;
+  gap: 2em;
+}
+.article-list li:first-child .article-card {
+  border-radius: 40px 40px 0 0;
 }
 
+.article-list li:last-child .article-card {
+  border-radius: 0 0 40px 40px;
+}
 .article-card {
-  border: 3px solid green;
   width: 80vw;
   max-width: 800px;
-  padding: 0;
-  margin: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background: inherit;
+  background: rgba(2, 0, 42, 0.5);
+  padding: 3em;
+  color: #f7f7ff;
   transition: background 0.3s ease-in-out;
 }
+
 .article-card:hover {
-  background: rgba(255, 255, 255, 0.1);
+  /* box-shadow: 0 0 25px #c30031; */
+  background: rgba(18, 14, 94, 0.8);
 }
 .article-card a {
   display: contents;
