@@ -47,6 +47,12 @@ Header {
   grid-template-columns: 1fr 4fr 1fr;
   width: 90vw;
 }
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
+}
 
 .article-list {
   border: 3px solid blue;
