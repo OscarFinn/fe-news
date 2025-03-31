@@ -3,11 +3,11 @@ export default function ArticleCard({ article }) {
   const altText = article.title;
   return (
     <section className="article-card">
-      <h3>{article.title}</h3>
-      <h4>{article.topic}</h4>
-      <h4>{article.author}</h4>
-      <p>{article.votes}</p>
+      <p className="article-topic">{article.topic}</p>
+      <h3 className="article-title">{article.title}</h3>
       <img src={article.article_img_url} alt={altText} />
+      <p className="votes">{article.votes}</p>
+      <p className="article-author">{article.author}</p>
     </section>
   );
 }

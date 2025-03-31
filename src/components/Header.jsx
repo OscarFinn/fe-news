@@ -7,8 +7,10 @@ export default function Header() {
   console.log(user);
   return (
     <header>
+      <button>Nav</button>
       <Link to="/">
         <h1>SHEEPLE</h1>
+        <h3>We tell you your opinions for you</h3>
       </Link>
       <img
         className="profile-thumbnail"
