@@ -64,6 +64,14 @@ Header {
   margin: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  background: inherit;
+  transition: background 0.3s ease-in-out;
+}
+.article-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.article-card a {
+  display: contents;
 }
 .article-card img {
   width: 80vw;
@@ -86,6 +94,9 @@ Header {
   grid-column: 2/2;
   text-align: end;
   margin: 4px 3vw;
+}
+.article-card .votes {
+  grid-column: 1/1;
 }
 
 .article-page {

@@ -5,7 +5,6 @@ import { getArticle } from "../api";
 
 export default function ArticlePage() {
   const [article, setArticle] = useState({});
-  console.log(article);
   const [error, setError] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);

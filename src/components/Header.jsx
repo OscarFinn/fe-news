@@ -9,8 +9,7 @@ export default function Header() {
     <header>
       <button>Nav</button>
       <Link to="/">
-        <h1>SHEEPLE</h1>
-        <h3>We tell you your opinions for you</h3>
+        <h1>Good News, Everyone!</h1>
       </Link>
       <img
         className="profile-thumbnail"
