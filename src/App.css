@@ -90,8 +90,13 @@ Header {
 
 .article-page {
   width: 80vw;
+  max-width: 800px;
   text-align: left;
   border: 4px solid purple;
   margin: 0 auto;
   padding: 16px;
+}
+.article-page img {
+  width: 80vw;
+  max-width: 800px;
 }
