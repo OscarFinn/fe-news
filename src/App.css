@@ -93,6 +93,7 @@ Header button {
   height: calc(50px + 2vw);
   width: calc(50px + 2vw);
   margin-top: calc(8px - 0.4vw);
+  justify-self: right;
 }
 ul {
   padding: 0;
@@ -129,7 +130,7 @@ li {
 
 .article-card:hover {
   /* box-shadow: 0 0 25px #c30031; */
-  background: rgba(18, 14, 94, 0.8);
+  background: rgba(18, 14, 94, 0.5);
 }
 .article-card a {
   display: contents;
@@ -138,6 +139,7 @@ li {
   width: 80vw;
   max-width: 800px;
   grid-column: 1/3;
+  border-radius: calc(8px + 1vw);
 }
 .article-topic {
   text-align: start;
