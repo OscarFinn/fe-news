@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { getArticle } from "../api";
 
 import CommentList from "./CommentList";
+import ArticleVoteCard from "./ArticleVoteCard";
 import { handleDates } from "../utils";
 
 export default function ArticlePage() {
@@ -52,7 +53,7 @@ export default function ArticlePage() {
           posted on {date} at {time} by {article.author}
         </p>
         <p>{article.body}</p>
-        <p>{article.votes}</p>
+        <ArticleVoteCard article={article} />
       </div>
       <div className="article-commments">
         <h2>Comments ({article.comment_count})</h2>

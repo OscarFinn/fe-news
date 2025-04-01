@@ -47,3 +47,15 @@ export function getUser(username) {
       return error;
     });
 }
+
+export function voteArticle(articleId, inc_votes) {
+  console.log(inc_votes);
+  return apiClient
+    .patch(`articles/${articleId}`, { inc_votes })
+    .then((response) => {
+      return response.data.article;
+    })
+    .catch((error) => {
+      return error;
+    });
+}

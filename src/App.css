@@ -229,3 +229,23 @@ li {
 .comment-author {
   font-weight: 600;
 }
+.vote-card {
+  display: grid;
+  font-size: 1.6em;
+  font-weight: 800;
+  grid-template-columns: repeat(3, 1fr);
+  border: 3px solid red;
+}
+.vote-card svg {
+  height: 48px;
+}
+
+.upvote {
+  transform: rotate(-45deg) translate(0, 0.5em);
+  z-index: 5;
+}
+
+.downvote {
+  transform: rotate(135deg);
+  z-index: 5;
+}
