@@ -36,3 +36,14 @@ export function getArticleComments(id) {
       return error;
     });
 }
+
+export function getUser(username) {
+  return apiClient
+    .get(`/users/${username}`)
+    .then((response) => {
+      return response.data.user;
+    })
+    .catch((error) => {
+      return error;
+    });
+}

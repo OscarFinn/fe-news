@@ -166,11 +166,66 @@ li {
   width: 80vw;
   max-width: 800px;
   text-align: left;
-  border: 4px solid purple;
   margin: 0 auto;
   padding: 16px;
+  background-color: rgba(2, 0, 42, 1);
+  border-radius: 40px;
 }
 .article-page img {
   width: 80vw;
   max-width: 800px;
+  border-radius: calc(8px + 1vw);
+}
+.comment-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.8em;
+  padding: 12px;
+}
+
+.comment-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-votes {
+  transform: translate(0, 2em);
+  font-size: 1.2em;
+  font-weight: 600;
+  .rocket-svg {
+    height: 24px;
+    width: 24px;
+    transform: translate(0, 0.2em);
+  }
+}
+
+.comment-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(0, 1.5em);
+}
+
+.comment-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-author {
+  font-weight: 600;
 }

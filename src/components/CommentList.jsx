@@ -4,6 +4,8 @@ import { getArticleComments } from "../api";
 
 import CommentCard from "./CommentCard";
 
+import Rocket from "../assets/rocket.svg?react";
+
 export default function CommentList({ article_id }) {
   const [comments, setComments] = useState([]);
   const [error, setError] = useState({});

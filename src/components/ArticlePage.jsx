@@ -10,7 +10,7 @@ export default function ArticlePage() {
   const nav = useNavigate();
 
   const [article, setArticle] = useState({});
-  const [error, setError] = useState({});
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const { article_id } = useParams();
