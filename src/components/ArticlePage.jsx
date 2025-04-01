@@ -57,7 +57,7 @@ export default function ArticlePage() {
       </div>
       <div className="article-commments">
         <h2>Comments ({article.comment_count})</h2>
-        <CommentList article_id={article.article_id} />
+        <CommentList article={article} />
       </div>
     </section>
   );
