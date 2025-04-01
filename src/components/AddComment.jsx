@@ -11,6 +11,8 @@ export default function AddComment({ article, comments, setComments }) {
   function handleSubmit(e) {
     const currentTime = new Date();
     e.preventDefault();
+    const tempBody = body;
+    setBody("");
     setError(null);
     const newComment = { username: user.username, body };
     const optimisticComment = {
@@ -24,6 +26,7 @@ export default function AddComment({ article, comments, setComments }) {
     setComments(newCommentsArr);
     postComment(article.article_id, newComment).catch((err) => {
       setError("Comment failed to post, try again");
+      setBody(tempBody);
       const errComments = [...newCommentsArr];
       errComments.shift();
       setComments(errComments);
@@ -31,16 +34,22 @@ export default function AddComment({ article, comments, setComments }) {
   }
   return (
     <section>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="body">Write a comment:</label>
-        <input
+      <form
+        name="comment-form"
+        onSubmit={handleSubmit}
+        className="comment-form"
+      >
+        <label htmlFor="body">Add a comment</label>
+        <textarea
           name="body"
-          type="text"
           value={body}
           onChange={(e) => setBody(e.target.value)}
+          rows="5"
           required
         />
-        <button type="submit">Submit</button>
+        <div className="comment-submit">
+          <button type="submit">Submit</button>
+        </div>
       </form>
       {error ? <p>{error}</p> : null}
     </section>
