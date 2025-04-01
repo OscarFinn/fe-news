@@ -45,7 +45,7 @@ export default function ArticleList() {
         const articleLink = `/article/${article.article_id}`;
         return (
           <li>
-            <ArticleCard key={article.article_id} article={article} />
+            <ArticleCard key={article.article_id} articleFromList={article} />
           </li>
         );
       })}

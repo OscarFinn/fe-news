@@ -229,3 +229,57 @@ li {
 .comment-author {
   font-weight: 600;
 }
+.article-vote-card {
+  display: grid;
+  font-size: 1.6em;
+  font-weight: 800;
+  grid-template-columns: repeat(3, 1fr);
+  z-index: 5;
+  width: 50%;
+  min-width: 200px;
+}
+.article-vote-card svg {
+  height: calc(16px + 1vw);
+}
+
+.upvote {
+  transform: translate(-4.1em, 0.25em) rotate(-45deg);
+}
+
+.downvote {
+  transform: translate(-4.1em, 0) rotate(135deg);
+}
+
+.comment-vote-card {
+  display: grid;
+  font-size: 1.3em;
+  font-weight: 800;
+  grid-template-rows: repeat(3, 1fr);
+
+  z-index: 5;
+  width: 2em;
+  text-align: center;
+  transform: translate(0, 1.8em);
+}
+.comment-vote-card svg {
+  height: 16px;
+}
+
+.article-vote-card button.vote-button {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+}
+
+.comment-vote-card button.vote-button {
+  width: 48px;
+  padding: 0;
+}
+
+.comment-vote-card .upvote {
+  transform: translate(-5em, 0) rotate(-45deg);
+}
+
+.comment-vote-card .downvote {
+  transform: translate(-5em, 0) rotate(135deg);
+}
