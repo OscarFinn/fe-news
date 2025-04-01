@@ -18,7 +18,7 @@ export default function ArticleVoteCard({ article }) {
     });
   };
   return (
-    <div className="vote-card">
+    <div className="article-vote-card">
       <button
         onClick={(e) => {
           handleVote(e, 1);

@@ -59,3 +59,15 @@ export function voteArticle(articleId, inc_votes) {
       return error;
     });
 }
+
+export function voteComment(commentId, inc_votes) {
+  console.log(inc_votes);
+  return apiClient
+    .patch(`comments/${commentId}`, { inc_votes })
+    .then((response) => {
+      return response.data.comment;
+    })
+    .catch((error) => {
+      return error;
+    });
+}

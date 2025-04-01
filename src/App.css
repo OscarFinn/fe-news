@@ -229,23 +229,34 @@ li {
 .comment-author {
   font-weight: 600;
 }
-.vote-card {
+.article-vote-card {
   display: grid;
   font-size: 1.6em;
   font-weight: 800;
   grid-template-columns: repeat(3, 1fr);
   border: 3px solid red;
+  z-index: 5;
 }
-.vote-card svg {
+.article-vote-card svg {
   height: 48px;
 }
 
 .upvote {
   transform: rotate(-45deg) translate(0, 0.5em);
-  z-index: 5;
 }
 
 .downvote {
   transform: rotate(135deg);
+}
+
+.comment-vote-card {
+  display: grid;
+  font-size: 1.6em;
+  font-weight: 800;
+  grid-template-rows: repeat(3, 1fr);
+  border: 3px solid red;
   z-index: 5;
+}
+.comment-vote-card svg {
+  height: 16px;
 }

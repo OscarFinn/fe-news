@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { handleDates } from "../utils";
 import { getUser } from "../api";
 
-import Rocket from "../assets/rocket.svg?react";
+import CommentVoteCard from "./CommentVoteCard";
 
 export default function CommentCard({ comment }) {
   const [commentUser, setCommentUser] = useState({});
@@ -32,12 +32,7 @@ export default function CommentCard({ comment }) {
         <div className="comment-avatar">
           <img src={commentUser.avatar_url} alt={comment.author} />
         </div>
-        <div className="comment-votes">
-          <span>{comment.votes} </span>
-          <span>
-            <Rocket className="rocket-svg" />
-          </span>
-        </div>
+        <CommentVoteCard comment={comment} />
       </div>
       <div className="comment-content">
         <div className="comment-header">
