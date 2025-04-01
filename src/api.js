@@ -49,7 +49,6 @@ export function getUser(username) {
 }
 
 export function voteArticle(articleId, inc_votes) {
-  console.log(inc_votes);
   return apiClient
     .patch(`articles/${articleId}`, { inc_votes })
     .then((response) => {
@@ -61,9 +60,18 @@ export function voteArticle(articleId, inc_votes) {
 }
 
 export function voteComment(commentId, inc_votes) {
-  console.log(inc_votes);
   return apiClient
     .patch(`comments/${commentId}`, { inc_votes })
+    .then((response) => {
+      return response.data.comment;
+    })
+    .catch((error) => {
+      return error;
+    });
+}
+export function postComment(articleId, comment) {
+  return apiClient
+    .post(`articles/${articleId}/comments`, comment)
     .then((response) => {
       return response.data.comment;
     })
