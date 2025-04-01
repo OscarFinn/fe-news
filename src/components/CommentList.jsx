@@ -4,8 +4,6 @@ import { getArticleComments } from "../api";
 
 import CommentCard from "./CommentCard";
 
-import Rocket from "../assets/rocket.svg?react";
-
 export default function CommentList({ article_id }) {
   const [comments, setComments] = useState([]);
   const [error, setError] = useState({});
@@ -41,7 +39,6 @@ export default function CommentList({ article_id }) {
   return (
     <li className="comments-list">
       {comments.map((comment) => {
-        console.log(comment, "<-- id in commentslist");
         return (
           <ul>
             <CommentCard key={comment.comment_id} comment={comment} />

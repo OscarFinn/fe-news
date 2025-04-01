@@ -20,6 +20,7 @@ export default function ArticleVoteCard({ article }) {
   return (
     <div className="article-vote-card">
       <button
+        className="vote-button"
         onClick={(e) => {
           handleVote(e, 1);
         }}
@@ -28,6 +29,7 @@ export default function ArticleVoteCard({ article }) {
       </button>
       <span>{voteCount}</span>
       <button
+        className="vote-button"
         onClick={(e) => {
           handleVote(e, -1);
         }}
