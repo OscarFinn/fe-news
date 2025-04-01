@@ -3,11 +3,14 @@ import { useState, useEffect } from "react";
 
 import { getArticle } from "../api";
 
+import CommentList from "./CommentList";
+import { handleDates } from "../utils";
+
 export default function ArticlePage() {
   const nav = useNavigate();
 
   const [article, setArticle] = useState({});
-  const [error, setError] = useState({});
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const { article_id } = useParams();
@@ -38,23 +41,23 @@ export default function ArticlePage() {
       </p>
     );
   }
-  const fullDate = new Date(article.created_at);
-  const date = fullDate.toLocaleDateString();
-  const time = fullDate.toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-  });
+  const { date, time } = handleDates(article.created_at);
   return (
     <section className="article-page">
-      <button onClick={() => nav(-1)}>Back</button>
-      <img src={article.article_img_url} />
-      <h2>{article.title}</h2>
-      <p>
-        posted on {date} at {time} by {article.author}
-      </p>
-      <p>{article.body}</p>
-      <p>{article.votes}</p>
+      <div className="article">
+        <button onClick={() => nav(-1)}>Back</button>
+        <img src={article.article_img_url} />
+        <h2>{article.title}</h2>
+        <p>
+          posted on {date} at {time} by {article.author}
+        </p>
+        <p>{article.body}</p>
+        <p>{article.votes}</p>
+      </div>
+      <div className="article-commments">
+        <h2>Comments ({article.comment_count})</h2>
+        <CommentList article_id={article.article_id} />
+      </div>
     </section>
   );
 }

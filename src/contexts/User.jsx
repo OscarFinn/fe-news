@@ -7,7 +7,7 @@ export const UserProvider = ({ children }) => {
     username: "guest",
     name: "Guest User",
     avatar_url:
-      "https://static.wikia.nocookie.net/roblox/images/f/f2/Roblox_guest.png/revision/latest/scale-to-width-down/352?cb=20180914191123",
+      "https://preview.redd.it/is-oscar-the-grouch-based-on-diogenes-the-cynic-philosopher-v0-vhczzza57ohd1.jpeg?auto=webp&s=5c6f0a05d0c9ea07161d7069f031d89fe549ddc3",
   };
   const [user, setUser] = useState(guest);
   return (

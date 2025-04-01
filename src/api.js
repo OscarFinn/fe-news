@@ -1,17 +1,49 @@
 import axios from "axios";
 
-const api = "https://be-news-olwx.onrender.com/api";
+const apiClient = axios.create({
+  baseURL: "https://be-news-olwx.onrender.com/api",
+});
 
 export function getArticles() {
-  let apiCall = `${api}/articles`;
-  return axios.get(apiCall).then((response) => {
-    return response.data.articles;
-  });
+  return apiClient
+    .get("/articles")
+    .then((response) => {
+      return response.data.articles;
+    })
+    .catch((error) => {
+      return error;
+    });
 }
 
 export function getArticle(id) {
-  let apiCall = `${api}/articles/${id}`;
-  return axios.get(apiCall).then((response) => {
-    return response.data.article;
-  });
+  return apiClient
+    .get(`/articles/${id}`)
+    .then((response) => {
+      return response.data.article;
+    })
+    .catch((error) => {
+      return error;
+    });
+}
+
+export function getArticleComments(id) {
+  return apiClient
+    .get(`/articles/${id}/comments`)
+    .then((response) => {
+      return response.data.comments;
+    })
+    .catch((error) => {
+      return error;
+    });
+}
+
+export function getUser(username) {
+  return apiClient
+    .get(`/users/${username}`)
+    .then((response) => {
+      return response.data.user;
+    })
+    .catch((error) => {
+      return error;
+    });
 }
