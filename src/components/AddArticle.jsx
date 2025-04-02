@@ -1,19 +1,46 @@
 import { useContext, useState, useEffect, useRef } from "react";
 import { UserContext } from "../contexts/User";
 
-import { postArticle, getTopics } from "../api";
+import { postArticle } from "../api";
 import TopicsDropdown from "./TopicsDropdown";
+import { useNavigate } from "react-router-dom";
 
 export default function AddArticle() {
+  const nav = useNavigate();
   const { user } = useContext(UserContext);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [article_img_url, setArticleImg] = useState("");
   const [topic, setTopic] = useState("");
 
+  const [error, setError] = useState(null);
+
+  const [isPosting, setIsPosting] = useState(false);
+
   function handleSubmit(e) {
+    setIsPosting(true);
     e.preventDefault();
-    console.log({ author: user.username, title, body, article_img_url, topic });
+    const article = {
+      title,
+      body,
+      article_img_url,
+      topic,
+      author: user.username,
+    };
+    postArticle(article)
+      .then((response) => {
+        nav("/");
+      })
+      .catch((err) => {
+        setError("Unable to post article");
+      })
+      .finally(() => {
+        setIsPosting(false);
+      });
+  }
+
+  if (isPosting) {
+    return <p> Posting article...</p>;
   }
 
   return (
@@ -44,6 +71,7 @@ export default function AddArticle() {
         />
         <button type="submit">Submit</button>
       </form>
+      {error ? <p>{error}</p> : null}
     </section>
   );
 }
