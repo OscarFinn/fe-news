@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link, useSearchParams, useParams } from "react-router-dom";
+import { UserContext } from "../contexts/User";
 
 import { getArticles } from "../api";
 

@@ -1,11 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { UserContext } from "../contexts/User";
 
 import { getArticleComments } from "../api";
 
 import CommentCard from "./CommentCard";
 import AddComment from "./AddComment";
+import DeleteComment from "./DeleteComment";
 
 export default function CommentList({ article }) {
+  const { user } = useContext(UserContext);
   const [comments, setComments] = useState([]);
   const [error, setError] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -48,6 +51,15 @@ export default function CommentList({ article }) {
         {comments.map((comment) => {
           return (
             <ul>
+              {user.username === comment.author ? (
+                <DeleteComment
+                  id={comment.comment_id}
+                  comments={comments}
+                  setComments={setComments}
+                />
+              ) : (
+                <div className="empty"></div>
+              )}
               <CommentCard key={comment.comment_id} comment={comment} />
             </ul>
           );

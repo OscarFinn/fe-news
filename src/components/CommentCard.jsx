@@ -1,14 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import { handleDates } from "../utils";
 import { getUser } from "../api";
 
 import CommentVoteCard from "./CommentVoteCard";
 
+import { UserContext } from "../contexts/User";
+
 export default function CommentCard({ comment }) {
   const [commentUser, setCommentUser] = useState({});
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     setIsLoading(true);
