@@ -62,3 +62,10 @@ export function getTopics() {
     return response.data.topics;
   });
 }
+export function deleteComment(commentId) {
+  return apiClient.delete(`/comments/${commentId}`);
+}
+
+export function deleteArticle(articleId) {
+  return apiClient.delete(`/articles/${articleId}`);
+}

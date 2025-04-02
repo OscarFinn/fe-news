@@ -1,14 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import { handleDates } from "../utils";
 import { getUser } from "../api";
 
 import CommentVoteCard from "./CommentVoteCard";
 
+import { UserContext } from "../contexts/User";
+
 export default function CommentCard({ comment }) {
   const [commentUser, setCommentUser] = useState({});
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     setIsLoading(true);
@@ -36,8 +40,8 @@ export default function CommentCard({ comment }) {
       </div>
       <div className="comment-content">
         <div className="comment-header">
-          <p className="comment-author">{comment.author}</p>
-          <p>{relativeTime}</p>
+          <p className="comment-author">{comment.author} </p>
+          <p className="comment-time">{relativeTime}</p>
         </div>
         <p className="comment-body">{comment.body}</p>
       </div>
