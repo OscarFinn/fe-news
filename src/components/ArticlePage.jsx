@@ -1,13 +1,17 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { UserContext } from "../contexts/User";
 
 import { getArticle } from "../api";
 
 import CommentList from "./CommentList";
 import ArticleVoteCard from "./ArticleVoteCard";
+import DeleteArticle from "./DeleteArticle";
 import { handleDates } from "../utils";
 
 export default function ArticlePage() {
+  const { user } = useContext(UserContext);
+
   const nav = useNavigate();
 
   const [article, setArticle] = useState({});
@@ -45,6 +49,7 @@ export default function ArticlePage() {
   const { date, time } = handleDates(article.created_at);
   return (
     <section className="article-page">
+      <DeleteArticle id={article.article_id} />
       <div className="article">
         <button onClick={() => nav(-1)}>Back</button>
         <img src={article.article_img_url} />

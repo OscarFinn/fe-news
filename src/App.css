@@ -296,6 +296,7 @@ li {
 } 
 */
 .article-page {
+  position: relative;
   width: 80vw;
   max-width: 800px;
   text-align: left;

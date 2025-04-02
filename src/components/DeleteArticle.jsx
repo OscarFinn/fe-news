@@ -1,19 +1,41 @@
 import { deleteArticle } from "../api";
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function DeleteArticle({ id, articles, setArticles }) {
+export default function DeleteArticle({
+  id,
+  articles = null,
+  setArticles = null,
+}) {
+  const nav = useNavigate();
   const [error, setError] = useState(null);
+  const [isDeleting, setIsDeleting] = useState(false);
+
   function handleDelete() {
-    const originalArticles = [...articles];
-    const optimisticDelete = articles.filter((article) => {
-      return article.article_id != id;
-    });
-    setArticles(optimisticDelete);
-    deleteArticle(id).catch((err) => {
-      setError("Failed to delete article");
-      setArticles(originalArticles);
-    });
+    setIsDeleting(true);
+    if (articles && setArticles) {
+      const originalArticles = [...articles];
+      const optimisticDelete = articles.filter((article) => {
+        return article.article_id != id;
+      });
+      setArticles(optimisticDelete);
+    }
+    deleteArticle(id)
+      .then(() => {
+        if (!articles) {
+          nav("/");
+        }
+      })
+      .catch((err) => {
+        setError("Failed to delete article");
+        if (setArticles) {
+          setArticles(originalArticles);
+        }
+      })
+      .finally(() => {
+        setIsDeleting(false);
+      });
   }
 
   return (
