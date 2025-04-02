@@ -50,7 +50,7 @@ export default function CommentList({ article }) {
       <li className="comments-list">
         {comments.map((comment) => {
           return (
-            <ul>
+            <ul className="comment-container">
               {user.username === comment.author ? (
                 <DeleteComment
                   id={comment.comment_id}

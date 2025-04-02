@@ -40,8 +40,8 @@ export default function CommentCard({ comment }) {
       </div>
       <div className="comment-content">
         <div className="comment-header">
-          <p className="comment-author">{comment.author}</p>
-          <p>{relativeTime}</p>
+          <p className="comment-author">{comment.author} </p>
+          <p className="comment-time">{relativeTime}</p>
         </div>
         <p className="comment-body">{comment.body}</p>
       </div>

@@ -282,6 +282,7 @@ li {
   align-items: flex-start;
   gap: 1.8em;
   padding: 12px;
+  border: 2px solid black;
 }
 
 .comment-left {
@@ -324,7 +325,14 @@ li {
 
 .comment-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
+  gap: 1em;
+  align-items: center;
+}
+
+.comment-time {
+  font-size: 0.9em;
+  padding: 0;
 }
 
 .comment-author {
@@ -448,7 +456,6 @@ form {
   z-index: 1000;
 }
 
-/* Search input inside dropdown */
 .dropdown-search {
   width: 100%;
   padding: 8px;
@@ -457,7 +464,6 @@ form {
   box-sizing: border-box;
 }
 
-/* Dropdown options */
 .dropdown-item {
   padding: 10px;
   cursor: pointer;
@@ -466,4 +472,14 @@ form {
 
 .dropdown-item:hover {
   background-color: #e9ecef;
+}
+
+.comment-container {
+  position: relative;
+}
+
+.delete-div {
+  position: absolute;
+  top: 1em;
+  right: 1em;
 }
