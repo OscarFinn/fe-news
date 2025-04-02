@@ -19,18 +19,26 @@ export default function Header() {
   }, [scrolled]);
   return (
     <header className={scrolled ? "header-scrolled" : ""}>
-      <button>Nav</button>
+      <button className="nav-menu">Nav</button>
       <Link to="/">
         <h1 id="header-main" data-text={"THE NEWS FRONTIER"}>
           THE NEWS FRONTIER
         </h1>
       </Link>
-      <img
-        className="profile-thumbnail"
-        src={user.avatar_url}
-        width="100px"
-        height="100px"
-      />
+
+      <div className="header-links">
+        <Link to="/submit">
+          <button id="add-article" onClick={() => {}}>
+            +
+          </button>
+        </Link>
+        <img
+          className="profile-thumbnail"
+          src={user.avatar_url}
+          width="100px"
+          height="100px"
+        />
+      </div>
     </header>
   );
 }

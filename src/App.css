@@ -8,6 +8,8 @@
   --article-card: rgba(13, 6, 46, 0.6);
   --article-card-hover: rgb(23, 12, 71, 0.6);
   --article-card-separator: rgba(6, 1, 26, 0.8);
+
+  --header-size: calc(50px + 2vw);
 }
 
 body {
@@ -74,9 +76,7 @@ Header {
   position: sticky;
   top: 0;
 }
-Header button {
-  height: auto;
-}
+
 Header h1 {
   color: var(--header-col);
   /* text-shadow: 0 0 10px #c30031; */
@@ -161,19 +161,34 @@ Header img {
   height: calc(50px + 2vw);
   transition: box-shadow 0.3s ease-in-out;
   align-self: top;
-  margin-top: calc(8px - 0.4vw);
 }
 
 Header img:hover {
-  box-shadow: 0 0 10px #c30031;
+  box-shadow: 0 0 15px #c30031;
 }
 
-Header button {
-  height: calc(50px + 2vw);
-  width: calc(50px + 2vw);
+Header .nav-menu {
+  height: var(--header-size);
+  width: var(--header-size);
   margin-top: calc(8px - 0.4vw);
   justify-self: right;
 }
+
+.header-links {
+  display: flex;
+  margin-top: calc(8px - 0.4vw);
+  gap: 0.2em;
+}
+
+#add-article {
+  padding: 0;
+  font-size: 3em;
+  height: var(--header-size);
+  width: var(--header-size);
+  display: table-cell;
+  vertical-align: middle;
+}
+
 .content-container {
   clip-path: polygon(0 0px, 100% 0px, 100% 100%, 0 100%);
 }
@@ -371,11 +386,19 @@ li {
   transform: translate(-5em, 0) rotate(135deg);
 }
 
-.comment-form {
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+}
+
+.article-form {
+  align-items: left;
+  justify-content: flex-start;
+  Select {
+    background-color: black;
+  }
 }
 .comment-form button {
   max-width: 100px;
@@ -404,4 +427,43 @@ li {
   display: flex;
   justify-content: flex-end;
   padding: 0px 8px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-overlay {
+  display: block;
+  position: absolute;
+  background-color: black;
+  min-width: 100%;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+/* Search input inside dropdown */
+.dropdown-search {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+/* Dropdown options */
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dropdown-item:hover {
+  background-color: #e9ecef;
 }
