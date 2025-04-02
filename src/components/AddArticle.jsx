@@ -53,6 +53,7 @@ export default function AddArticle() {
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          required
         />
         <TopicsDropdown setTopic={setTopic} />
         <label htmlFor="body">Article Body</label>
@@ -61,6 +62,7 @@ export default function AddArticle() {
           value={body}
           onChange={(e) => setBody(e.target.value)}
           rows="10"
+          required
         />
         <label htmlFor="img_url">Article Image URL</label>
         <input

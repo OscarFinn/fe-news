@@ -60,6 +60,7 @@ export default function TopicsDropdown({ setTopic }) {
         }}
         placeholder="--pick a topic--"
         className="search-input"
+        required
       />
 
       {isOpen && (
