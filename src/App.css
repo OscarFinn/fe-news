@@ -1,13 +1,26 @@
+:root {
+  --header-col: #d20035;
+  --header-shadow1: #a3001074;
+  --header-shadow2: #80001775;
+  --header-shadow3: #55000e8b;
+  --header-glow: #ff0a3b;
+
+  --article-card: rgba(13, 6, 46, 0.6);
+  --article-card-hover: rgb(23, 12, 71, 0.6);
+  --article-card-separator: rgba(6, 1, 26, 0.8);
+}
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 #root {
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
 }
 
@@ -48,32 +61,98 @@ body {
 }
 
 Header {
-  display: grid;
-  grid-template-columns: 1fr 6fr 1fr;
-  width: 90vw;
   background-color: inherit;
-  margin: auto;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  width: 100vw;
+  height: calc(120px);
+  background-color: inherit;
   justify-content: center;
-  max-width: 1200px;
-  margin-bottom: 4em;
-  padding: 0;
+  margin-bottom: 6em;
+  padding-top: 1em;
+  position: sticky;
+  top: 0;
 }
 Header button {
   height: auto;
 }
 Header h1 {
-  color: #d20035;
+  color: var(--header-col);
   /* text-shadow: 0 0 10px #c30031; */
   transition: text-shadow 0.3s ease-in-out;
   margin-top: 0;
   font-size: calc(32px + 1.5vw);
+  transform: translate(0, 0em);
   span {
     font-size: calc(40px + 1.5vw);
   }
 }
-Header h1:hover {
-  text-shadow: 0 0 10px #c30031;
-  /* text-shadow: 0 0 15px #830000, 0 0 30px #6b0101, 0 0 50px #000000;*/
+
+header {
+  background: rgba(255, 255, 255, 0);
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  background: 
+   /*linear-gradient(
+    to bottom,
+    rgb(103, 14, 14) 40%,
+    rgb(43, 0, 36) 80%,
+    rgba(138, 138, 255, 0)
+  ), */ linear-gradient(
+    to bottom,
+    rgb(24, 8, 58) 20%,
+    rgb(8, 8, 36) 90%,
+    rgba(0, 0, 50, 0) 95%
+  );
+}
+
+/* Change the opacity when scrolled */
+.header-scrolled::before {
+  opacity: 1;
+}
+
+#header-main::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  text-wrap: inherit;
+}
+
+@keyframes echo-trail {
+  100% {
+    text-shadow: 0px -9px 2px var(--header-shadow1),
+      0px -21px 4px var(--header-shadow2), 0 -36px 6px var(--header-shadow3),
+      0 0 12px var(--header-glow);
+    opacity: 1;
+  }
+}
+
+@keyframes translate-header {
+  100% {
+    transform: translate(0, 0.5em);
+  }
+}
+#header-main:hover {
+  animation: translate-header 0.4s ease-out forwards;
+}
+#header-main:hover::before {
+  animation: echo-trail 0.4s ease-out forwards;
 }
 Header img {
   border-radius: 50%;
@@ -95,6 +174,9 @@ Header button {
   margin-top: calc(8px - 0.4vw);
   justify-self: right;
 }
+.content-container {
+  clip-path: polygon(0 0px, 100% 0px, 100% 100%, 0 100%);
+}
 ul {
   padding: 0;
 }
@@ -108,7 +190,7 @@ li {
   align-items: center;
   padding: 0 5w;
   border-radius: 5%;
-  gap: 2em;
+  gap: 0;
 }
 .article-list li:first-child .article-card {
   border-radius: 40px 40px 0 0;
@@ -117,27 +199,31 @@ li {
 .article-list li:last-child .article-card {
   border-radius: 0 0 40px 40px;
 }
+
+.article-list li:not(:last-child) .article-card {
+  border-bottom: 5px solid var(--article-card-separator);
+}
 .article-card {
   width: 80vw;
-  max-width: 800px;
+  max-width: 600px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background: rgba(2, 0, 42, 0.5);
-  padding: 3em;
+  background: var(--article-card);
+  padding: calc(1em + 1vw);
   color: #f7f7ff;
   transition: background 0.3s ease-in-out;
 }
 
 .article-card:hover {
   /* box-shadow: 0 0 25px #c30031; */
-  background: rgba(18, 14, 94, 0.5);
+  background: var(--article-card-hover);
 }
 .article-card a {
   display: contents;
 }
 .article-card img {
   width: 80vw;
-  max-width: 800px;
+  max-width: 600px;
   grid-column: 1/3;
   border-radius: calc(8px + 1vw);
 }
@@ -235,8 +321,8 @@ li {
   font-weight: 800;
   grid-template-columns: repeat(3, 1fr);
   z-index: 5;
-  width: 50%;
-  min-width: 200px;
+  width: 144px;
+  justify-items: center;
 }
 .article-vote-card svg {
   height: calc(16px + 1vw);
@@ -255,7 +341,6 @@ li {
   font-size: 1.3em;
   font-weight: 800;
   grid-template-rows: repeat(3, 1fr);
-
   z-index: 5;
   width: 2em;
   text-align: center;
@@ -268,11 +353,13 @@ li {
 .article-vote-card button.vote-button {
   width: 48px;
   height: 48px;
+  border-radius: 8px;
   padding: 0;
 }
 
 .comment-vote-card button.vote-button {
   width: 48px;
+  border-radius: 8px;
   padding: 0;
 }
 

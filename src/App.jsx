@@ -10,11 +10,13 @@ function App() {
   return (
     <>
       <Header />
-      <Routes>
-        <Route path="/" element={<ArticleList />} />
-        <Route path="/:topic/" element={<ArticleList />} />
-        <Route path="/article/:article_id" element={<ArticlePage />} />
-      </Routes>
+      <section className="content-container">
+        <Routes>
+          <Route path="/" element={<ArticleList />} />
+          <Route path="/:topic/" element={<ArticleList />} />
+          <Route path="/article/:article_id" element={<ArticlePage />} />
+        </Routes>
+      </section>
     </>
   );
 }
