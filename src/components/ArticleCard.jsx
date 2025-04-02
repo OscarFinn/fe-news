@@ -17,13 +17,13 @@ export default function ArticleCard({ articleFromList }) {
     <Link to={articleLink}>
       <section className="article-card">
         <div className="article-card-header">
-          <p className="article-topic">{article.topic}</p>
+          <p className="article-topic">{article.topic.toUpperCase()}</p>
         </div>
         <div className="article-card-text">
           <h3 className="article-title">{article.title}</h3>
           <div>
-            <p className="article-author">{article.author}</p>
-            <p className="article-created">{relativeTime}</p>
+            <span className="article-author">{article.author} </span>
+            <span className="article-created">{relativeTime}</span>
           </div>
         </div>
         <div className="article-card-content">

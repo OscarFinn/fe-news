@@ -8,7 +8,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollThreshold = 80;
+      const scrollThreshold = 60;
       const isScrolled = window.scrollY > scrollThreshold;
       setScrolled(isScrolled);
     };
@@ -17,9 +17,40 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [scrolled]);
+
   return (
     <header className={scrolled ? "header-scrolled" : ""}>
-      <button className="nav-menu">Nav</button>
+      <button className="nav-menu">
+        <svg viewBox="0 0 100 100" width="100%" height="100%">
+          <line
+            x1="10"
+            y1="25"
+            x2="90"
+            y2="25"
+            stroke="currentColor"
+            stroke-width="10"
+            stroke-linecap="round"
+          />
+          <line
+            x1="10"
+            y1="50"
+            x2="90"
+            y2="50"
+            stroke="currentColor"
+            stroke-width="10"
+            stroke-linecap="round"
+          />
+          <line
+            x1="10"
+            y1="75"
+            x2="90"
+            y2="75"
+            stroke="currentColor"
+            stroke-width="10"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
       <Link to="/">
         <h1 id="header-main" data-text={"THE NEWS FRONTIER"}>
           THE NEWS FRONTIER
@@ -28,8 +59,25 @@ export default function Header() {
 
       <div className="header-links">
         <Link to="/submit">
-          <button id="add-article" onClick={() => {}}>
-            +
+          <button id="add-article">
+            <svg viewBox="0 0 100 100" width="100%" height="100%">
+              <line
+                x1="50"
+                y1="10"
+                x2="50"
+                y2="90"
+                stroke="currentColor"
+                stroke-width="12"
+              />
+              <line
+                x1="10"
+                y1="50"
+                x2="90"
+                y2="50"
+                stroke="currentColor"
+                stroke-width="12"
+              />
+            </svg>
           </button>
         </Link>
         <Link to={`/user/${user.username}`}>

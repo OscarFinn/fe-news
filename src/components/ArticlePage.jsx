@@ -9,6 +9,8 @@ import ArticleVoteCard from "./ArticleVoteCard";
 import DeleteArticle from "./DeleteArticle";
 import { handleDates } from "../utils";
 
+import Back from "../assets/back.svg?react";
+
 export default function ArticlePage() {
   const { user } = useContext(UserContext);
 
@@ -51,7 +53,9 @@ export default function ArticlePage() {
     <section className="article-page">
       <DeleteArticle id={article.article_id} />
       <div className="article">
-        <button onClick={() => nav(-1)}>Back</button>
+        <button className="back-button" onClick={() => nav(-1)}>
+          <Back />
+        </button>
         <img src={article.article_img_url} />
         <h2>{article.title}</h2>
         <p>

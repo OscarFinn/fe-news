@@ -19,7 +19,14 @@ export default function DeleteComment({ id, comments, setComments }) {
   return (
     <div className="delete-div">
       <button className="delete-button" onClick={handleDelete}>
-        X
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M6 6L18 18M6 18L18 6"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
       </button>
       {error ? <p className="delete-error">{error}</p> : null}
     </div>

@@ -5,18 +5,19 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background: radial-gradient(
-      ellipse calc(100px + 45vw) calc(180px + 1vw) at 50% 0%,
+      ellipse calc(20vw + (20px + 2vw) * 12) calc((20px + 2vw) * 2) at 50% 0%,
       rgb(124, 0, 0) 20%,
-      rgb(47, 0, 40) 80%,
-      rgb(45, 23, 153) 98%,
-      rgba(0, 0, 0, 0.8) 100%,
+      rgb(47, 0, 40) 70%,
+      rgba(20, 3, 47, 0.8) 90%,
+      rgba(45, 23, 153, 0.8) 99%,
       rgba(0, 0, 0, 0) 100%
     ),
     radial-gradient(
-      ellipse calc(225px + 65vw) calc(320px + 1.5vw) at 50% 0%,
-      rgb(211, 255, 254) 58%,
-      rgba(69, 143, 255, 0.8) 65%,
-      rgba(0, 50, 150, 0.5) 80%,
+      ellipse calc(40vw + (20px + 2vw) * 56) calc((20px + 2vw) * 8) at 50% 0%,
+      rgba(69, 143, 255, 1) 24%,
+      rgb(211, 255, 254) 25%,
+      rgba(69, 143, 255, 0.8) 30%,
+      rgba(0, 50, 150, 0.4) 80%,
       rgba(0, 0, 50, 0) 100%
     ),
     radial-gradient(
@@ -56,19 +57,21 @@ h1 {
 }
 
 button {
-  border-radius: 16px;
+  border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #8b0023;
+  background-color: #9b0024;
   cursor: pointer;
   transition: border-color 0.25s;
   border: 2px solid #2d0014;
 }
 button:hover {
-  border-color: #c30031;
+  /* border-color: #c2004d;
+  box-shadow: 0 0 20px #c2004d; */
+  background-color: #c2004d;
 }
 button:focus,
 button:focus-visible {
