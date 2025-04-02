@@ -32,12 +32,14 @@ export default function Header() {
             +
           </button>
         </Link>
-        <img
-          className="profile-thumbnail"
-          src={user.avatar_url}
-          width="100px"
-          height="100px"
-        />
+        <Link to={`/user/${user.username}`}>
+          <img
+            className="profile-thumbnail"
+            src={user.avatar_url}
+            width="100px"
+            height="100px"
+          />
+        </Link>
       </div>
     </header>
   );
