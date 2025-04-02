@@ -5,47 +5,27 @@ const apiClient = axios.create({
 });
 
 export function getArticles() {
-  return apiClient
-    .get("/articles")
-    .then((response) => {
-      return response.data.articles;
-    })
-    .catch((error) => {
-      return error;
-    });
+  return apiClient.get("/articles").then((response) => {
+    return response.data.articles;
+  });
 }
 
 export function getArticle(id) {
-  return apiClient
-    .get(`/articles/${id}`)
-    .then((response) => {
-      return response.data.article;
-    })
-    .catch((error) => {
-      return error;
-    });
+  return apiClient.get(`/articles/${id}`).then((response) => {
+    return response.data.article;
+  });
 }
 
 export function getArticleComments(id) {
-  return apiClient
-    .get(`/articles/${id}/comments`)
-    .then((response) => {
-      return response.data.comments;
-    })
-    .catch((error) => {
-      return error;
-    });
+  return apiClient.get(`/articles/${id}/comments`).then((response) => {
+    return response.data.comments;
+  });
 }
 
 export function getUser(username) {
-  return apiClient
-    .get(`/users/${username}`)
-    .then((response) => {
-      return response.data.user;
-    })
-    .catch((error) => {
-      return error;
-    });
+  return apiClient.get(`/users/${username}`).then((response) => {
+    return response.data.user;
+  });
 }
 
 export function voteArticle(articleId, inc_votes) {
@@ -53,9 +33,6 @@ export function voteArticle(articleId, inc_votes) {
     .patch(`articles/${articleId}`, { inc_votes })
     .then((response) => {
       return response.data.article;
-    })
-    .catch((error) => {
-      return error;
     });
 }
 
@@ -64,9 +41,6 @@ export function voteComment(commentId, inc_votes) {
     .patch(`comments/${commentId}`, { inc_votes })
     .then((response) => {
       return response.data.comment;
-    })
-    .catch((error) => {
-      return error;
     });
 }
 export function postComment(articleId, comment) {
@@ -74,8 +48,17 @@ export function postComment(articleId, comment) {
     .post(`articles/${articleId}/comments`, comment)
     .then((response) => {
       return response.data.comment;
-    })
-    .catch((error) => {
-      return error;
     });
+}
+
+export function postArticle(article) {
+  return apiClient.post(`articles/`, article).then((response) => {
+    return response.data.article;
+  });
+}
+
+export function getTopics() {
+  return apiClient.get(`/topics/`).then((response) => {
+    return response.data.topics;
+  });
 }
