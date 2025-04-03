@@ -8,6 +8,7 @@
   --article-card: rgba(13, 6, 46, 0.6);
   --article-card-hover: rgb(23, 12, 71, 0.6);
   --article-card-separator: rgba(6, 1, 26, 0.8);
+  --link: #c2004d;
 
   --header-size: calc(20px + 2vw);
   --header-border-rad: 8px;
@@ -268,9 +269,9 @@ li {
 }
 
 .article-card:hover {
-  /* box-shadow: 0 0 25px #c30031; */
   background: var(--article-card-hover);
 }
+
 .article-card a {
   display: contents;
 }
@@ -303,14 +304,15 @@ li {
   word-wrap: break-word;
   margin: 0;
 }
-.article-created {
+.article-card-info {
   color: rgb(99, 105, 158);
+}
+.article-created {
   text-align: left;
   align-self: flex-end;
   margin-top: 0;
 }
 .article-author {
-  color: rgb(99, 105, 158);
   text-align: left;
   align-self: flex-end;
   margin-bottom: 0;
@@ -323,6 +325,15 @@ li {
 .article-card-footer {
   display: flex;
   justify-content: space-between;
+}
+
+.text-link {
+  z-index: 5;
+  color: inherit;
+}
+
+.text-link:hover {
+  color: var(--link);
 }
 .article-page {
   position: relative;

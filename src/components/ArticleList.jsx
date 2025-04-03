@@ -16,6 +16,9 @@ export default function ArticleList() {
   const topic = useParams();
 
   useEffect(() => {
+    if (topic) {
+      console.log("loading page for a specific topic");
+    }
     setIsLoading(true);
     setIsError(false);
     getArticles(topic)
@@ -29,7 +32,7 @@ export default function ArticleList() {
       .finally(() => {
         setIsLoading(false);
       });
-  }, []);
+  }, [topic]);
 
   if (isLoading) {
     return <p>loading...</p>;
@@ -45,7 +48,6 @@ export default function ArticleList() {
   return (
     <ul className="article-list">
       {articles.map((article) => {
-        const articleLink = `/article/${article.article_id}`;
         return (
           <li className="article-card-list">
             {user.username === article.author ? (
