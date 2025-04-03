@@ -6,7 +6,7 @@ export default function SortArticles({ searchParams, setSearchParams }) {
   const dropdownRef = useRef(null);
 
   const sortOptions = [
-    { value: "sort_bycreated_at&order=ASC", label: "Old" },
+    { value: "sort_by=created_at&order=ASC", label: "Old" },
     { value: "sort_by=created_at", label: "New" },
     { value: "sort_by=comment_count", label: "Most Commented" },
     { value: "sort_by=comment_count&order=ASC", label: "Least Commented" },
@@ -20,6 +20,39 @@ export default function SortArticles({ searchParams, setSearchParams }) {
     setSearchParams(option);
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    const currentSortBy = searchParams.get("sort_by");
+    const currentOrder = searchParams.get("order");
+
+    console.log({ currentSortBy, currentOrder });
+
+    let currentOption;
+
+    if (currentSortBy && currentOrder) {
+      console.log({ currentSortBy, currentOrder }, "<--- sort by and order");
+      currentOption = sortOptions.find(
+        (option) =>
+          option.value.includes(`sort_by=${currentSortBy}`) &&
+          option.value.includes(`order=${currentOrder}`)
+      );
+    } else if (currentSortBy) {
+      console.log({ currentSortBy, currentOrder }, "<---only sort by");
+      currentOption = sortOptions.find((option) => {
+        return (
+          option.value.includes(`sort_by=${currentSortBy}`) &&
+          !option.value.includes("order=")
+        );
+      });
+      console.log(currentOption, "<--- sort by only");
+    }
+
+    if (currentOption) {
+      setSelected(currentOption.label);
+    } else {
+      setSelected("New");
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -42,9 +75,9 @@ export default function SortArticles({ searchParams, setSearchParams }) {
         onFocus={() => {
           setIsOpen(true);
         }}
-        placeholder="--Sort Articles--"
+        placeholder=""
         className="search-input"
-        required
+        readOnly
       />
 
       {isOpen && (
