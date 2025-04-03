@@ -25,26 +25,21 @@ export default function SortArticles({ searchParams, setSearchParams }) {
     const currentSortBy = searchParams.get("sort_by");
     const currentOrder = searchParams.get("order");
 
-    console.log({ currentSortBy, currentOrder });
-
     let currentOption;
 
     if (currentSortBy && currentOrder) {
-      console.log({ currentSortBy, currentOrder }, "<--- sort by and order");
       currentOption = sortOptions.find(
         (option) =>
           option.value.includes(`sort_by=${currentSortBy}`) &&
           option.value.includes(`order=${currentOrder}`)
       );
     } else if (currentSortBy) {
-      console.log({ currentSortBy, currentOrder }, "<---only sort by");
       currentOption = sortOptions.find((option) => {
         return (
           option.value.includes(`sort_by=${currentSortBy}`) &&
           !option.value.includes("order=")
         );
       });
-      console.log(currentOption, "<--- sort by only");
     }
 
     if (currentOption) {
@@ -67,9 +62,9 @@ export default function SortArticles({ searchParams, setSearchParams }) {
   }, []);
 
   return (
-    <div style={{ position: "relative", maxWidth: "300px", margin: "auto" }}>
+    <div className="select-sort">
       <input
-        name="sort"
+        id="sort-input"
         type="text"
         value={selected}
         onFocus={() => {

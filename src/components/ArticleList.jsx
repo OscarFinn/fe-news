@@ -48,7 +48,7 @@ export default function ArticleList() {
     );
   }
   return (
-    <section>
+    <section className="articles-container">
       <SortArticles
         searchParams={searchParams}
         setSearchParams={setSearchParams}
