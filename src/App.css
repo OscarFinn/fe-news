@@ -16,9 +16,14 @@
   --header-border-rad: 8px;
 }
 
+a:hover {
+  color: var(--link);
+}
+
 body {
   display: flex;
   justify-content: flex-start;
+  align-items: flex-start;
   position: relative;
   font-size: clamp(14px, 2vw, 18px);
   padding-top: calc(var(--header-size) * 2.5);
@@ -356,7 +361,6 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
   padding: 0 5w;
   border-radius: 5%;
   gap: 0;
@@ -381,6 +385,9 @@ li {
   color: #f7f7ff;
   transition: background 0.3s ease-in-out;
   overflow: hidden;
+}
+.topic-card:hover {
+  background-color: var(--card-hover);
 }
 
 .topic-img-container {

@@ -13,6 +13,7 @@ export default function ArticleList() {
   const [error, setError] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+  //seems to be changing on opening of sidebar
   const topic = useParams();
 
   useEffect(() => {
