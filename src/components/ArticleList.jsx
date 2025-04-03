@@ -13,12 +13,13 @@ export default function ArticleList() {
   const [error, setError] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+  //seems to be changing on opening of sidebar
   const topic = useParams();
 
   useEffect(() => {
     setIsLoading(true);
     setIsError(false);
-    getArticles()
+    getArticles(topic)
       .then((articles) => {
         setArticles(articles);
       })
@@ -29,7 +30,7 @@ export default function ArticleList() {
       .finally(() => {
         setIsLoading(false);
       });
-  }, []);
+  }, [topic]);
 
   if (isLoading) {
     return <p>loading...</p>;
@@ -45,7 +46,6 @@ export default function ArticleList() {
   return (
     <ul className="article-list">
       {articles.map((article) => {
-        const articleLink = `/article/${article.article_id}`;
         return (
           <li className="article-card-list">
             {user.username === article.author ? (
