@@ -1,5 +1,4 @@
 export default function TopicCard({ topic }) {
-  console.log(topic);
   return (
     <div className="topic-card">
       <div className="topic-img-container">

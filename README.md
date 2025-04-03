@@ -1,12 +1,29 @@
-# React + Vite
+# THE NEWS FRONTIER - A NEWS FRONTEND PROJECT
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The site is hosted here:
 
-Currently, two official plugins are available:
+    https://thenewsfrontier.netlify.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is a frontend-end React application that interfaces with my custom-built backend API (https://github.com/OscarFinn/be-news) to display articles and comments, allow the user to sort articles and filter by topic with a user friendly UX design.
 
-## Expanding the ESLint configuration
+## INITIAL SETUP
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The project was built using the following:
+
+    node: 23.2.0
+
+Clone the repository to a directory of your choice using git clone.
+
+Run the following in the terminal from the project directory after cloning:
+
+    npm install
+
+To start the locally run page enter:
+
+    npm run dev
+
+Copy to the localhost link into your browser of choice to view the project.
+
+## CREDIT
+
+This portfolio project was created as part of a Digital Skills Bootcamp in Software Engineering provided by [Northcoders](https://northcoders.com/)

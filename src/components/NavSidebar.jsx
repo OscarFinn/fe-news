@@ -9,7 +9,6 @@ export default function NavSidebar({ isOpen, setIsOpen }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    console.log("loading topics page");
     setIsLoading(true);
     getTopics()
       .then((response) => {
