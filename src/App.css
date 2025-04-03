@@ -17,6 +17,8 @@
 
   --button-background: #9b0024;
   --button-border: #2d0014;
+
+  --comment-vote-button-size: calc(20px + 2vw);
 }
 
 a:hover {
@@ -341,8 +343,17 @@ li {
 } 
 */
 .article-card-footer {
+  width: 90%;
   display: flex;
   justify-content: space-between;
+}
+
+.goto-comments {
+  color: white;
+  font-weight: 600;
+  padding: 0.2em 1em;
+  border: 16px;
+  min-width: 128px;
 }
 
 .text-link {
@@ -435,7 +446,7 @@ li {
   align-items: flex-start;
   gap: 1.8em;
   padding: 12px;
-  border: 2px solid black;
+  border: 2px solid white;
 }
 
 .comment-left {
@@ -444,7 +455,6 @@ li {
 }
 
 .comment-votes {
-  transform: translate(0, 2em);
   font-size: 1.2em;
   font-weight: 600;
   .rocket-svg {
@@ -462,7 +472,6 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translate(0, 1.5em);
 }
 
 .comment-avatar img {
@@ -481,15 +490,18 @@ li {
   justify-content: start;
   gap: 1em;
   align-items: center;
+  margin: 0;
 }
 
 .comment-time {
   font-size: 0.9em;
   padding: 0;
+  margin: 0;
 }
 
 .comment-author {
   font-weight: 600;
+  margin: 0;
 }
 .article-vote-card {
   display: grid;
@@ -500,16 +512,15 @@ li {
   width: 144px;
   justify-items: center;
 }
-.article-vote-card svg {
-  height: calc(16px + 1vw);
-}
 
 .upvote {
-  transform: translate(-4.1em, 0.25em) rotate(-45deg);
+  width: 1em;
+  height: 1em;
 }
 
 .downvote {
-  transform: translate(-4.1em, 0) rotate(135deg);
+  width: 1em;
+  height: 1em;
 }
 
 .comment-vote-card {
@@ -520,31 +531,34 @@ li {
   z-index: 5;
   width: 2em;
   text-align: center;
-  transform: translate(0, 1.8em);
+  justify-items: center;
+  transform: translate(0, 0.2em);
 }
-.comment-vote-card svg {
+/* .comment-vote-card svg {
   height: 16px;
-}
+} */
 
 .article-vote-card button.vote-button {
-  width: 48px;
-  height: 48px;
+  height: calc(20px + 3vw);
+  width: calc(20px + 3vw);
   border-radius: 8px;
-  padding: 0;
+  padding: 0.1em;
 }
 
 .comment-vote-card button.vote-button {
-  width: 48px;
+  width: var(--comment-vote-button-size);
   border-radius: 8px;
   padding: 0;
 }
 
 .comment-vote-card .upvote {
-  transform: translate(-5em, 0) rotate(-45deg);
+  width: 1em;
+  height: 1em;
 }
 
 .comment-vote-card .downvote {
-  transform: translate(-5em, 0) rotate(135deg);
+  width: 1em;
+  height: 1em;
 }
 
 form {
@@ -632,10 +646,12 @@ form {
 .article-card-list {
   position: relative;
   .delete-div {
-    top: 3%;
+    top: 0;
+    right: 0;
     button {
-      width: 2em;
-      height: 2em;
+      color: white;
+      width: calc(20px + 0.5em);
+      height: calc(20px + 0.5em);
       font-size: 1em;
       padding: 0;
     }
@@ -690,7 +706,7 @@ form {
   position: relative;
   width: 100%;
   margin: "auto";
-  align-self: flex-start;
+  align-self: center;
   text-align: left;
 }
 #sort-input {

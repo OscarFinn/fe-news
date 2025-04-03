@@ -1,4 +1,5 @@
-import Rocket from "../assets/rocket.svg?react";
+import UpvoteRocket from "../assets/upvoteRocket.svg?react";
+import DownvoteRocket from "../assets/downvoteRocket.svg?react";
 
 import { useState } from "react";
 
@@ -25,7 +26,7 @@ export default function CommentVoteCard({ comment }) {
           handleVote(e, 1);
         }}
       >
-        <Rocket className="upvote" />
+        <UpvoteRocket className="upvote" />
       </button>
       <span>{voteCount}</span>
       <button
@@ -34,7 +35,7 @@ export default function CommentVoteCard({ comment }) {
           handleVote(e, -1);
         }}
       >
-        <Rocket className="downvote" />
+        <DownvoteRocket className="downvote" />
       </button>
       {error ? <p>{error}</p> : null}
     </div>

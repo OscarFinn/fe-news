@@ -62,6 +62,7 @@ export default function ArticleList() {
                   id={article.article_id}
                   articles={articles}
                   setArticles={setArticles}
+                  className="article-card-delete"
                 />
               ) : null}
               <ArticleCard key={article.article_id} articleFromList={article} />
