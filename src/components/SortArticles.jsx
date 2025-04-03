@@ -76,7 +76,7 @@ export default function SortArticles({ searchParams, setSearchParams }) {
       />
 
       {isOpen && (
-        <div ref={dropdownRef} className="dropdown-overlay">
+        <div ref={dropdownRef} className="dropdown-overlay" id="sort-dropdown">
           {sortOptions.map(({ value, label }) => (
             <div
               key={value}
