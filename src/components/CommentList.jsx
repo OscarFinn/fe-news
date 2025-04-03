@@ -7,11 +7,10 @@ import CommentCard from "./CommentCard";
 import AddComment from "./AddComment";
 import DeleteComment from "./DeleteComment";
 
-export default function CommentList({ article }) {
+export default function CommentList({ isLoading, setIsLoading, article }) {
   const { user } = useContext(UserContext);
   const [comments, setComments] = useState([]);
   const [error, setError] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {

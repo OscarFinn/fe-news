@@ -6,7 +6,7 @@
   --header-glow: #ff0a3b;
 
   --card-background: rgba(13, 6, 46, 0.6);
-  --card-hover: rgb(23, 12, 71, 0.6);
+  --card-hover: rgba(34, 22, 88, 0.679);
   --article-card-separator: rgba(6, 1, 26, 0.8);
   --link: #c2004d;
 
@@ -241,17 +241,19 @@ ul {
 li {
   list-style: none;
 }
+.sort-li {
+  align-self: flex-start;
+}
 
 .article-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 5vw;
   border-radius: 5%;
   gap: 0;
   margin: 0;
 }
-.article-list li:first-child .article-card {
+.article-list li:nth-child(2) .article-card {
   border-radius: 20px 20px 0 0;
 }
 
@@ -350,12 +352,13 @@ li {
   justify-content: space-between;
 }
 
-.goto-comments {
+.go-to-comments {
   color: white;
   font-weight: 600;
   padding: 0.2em 1em;
   border: 16px;
   min-width: 128px;
+  z-index: 100;
 }
 
 .text-link {
@@ -448,7 +451,7 @@ li {
   align-items: flex-start;
   gap: 1.8em;
   padding: 12px;
-  border: 2px solid white;
+  border-bottom: 2px solid var(--article-card-separator);
 }
 
 .comment-left {
@@ -644,6 +647,7 @@ form {
 .comment-container {
   position: relative;
 }
+
 .article-card-list {
   position: relative;
   .delete-div {
@@ -660,8 +664,8 @@ form {
 }
 .delete-div {
   position: absolute;
-  top: 5;
-  right: 1em;
+  top: 0;
+  right: 0;
 }
 .article-page .delete-div button {
   padding: 0;
@@ -669,6 +673,13 @@ form {
   height: 2em;
   border-radius: 32px;
 }
+
+.comment-delete-button {
+  width: 2em !important;
+  height: 2em !important;
+  border-radius: 12px !important;
+}
+
 .back-button {
   padding: 0;
   width: 3em;
@@ -687,6 +698,21 @@ form {
   transition: left 0.3s ease-in-out;
   padding: 20px;
   z-index: 100;
+  text-align: right;
+  padding-left: 2em;
+}
+.sidebar button {
+  color: white;
+  font-weight: 800;
+}
+.sidebar-topics {
+  text-align: left;
+}
+
+.sidebar-topics p {
+  padding-left: 20px;
+  border-bottom: 2px solid var(--button-border);
+  margin: 0;
 }
 
 .sidebar.open {
@@ -727,4 +753,8 @@ form {
 #sort-dropdown .dropdown-item {
   width: 25%;
   min-width: 150px;
+}
+
+.user-profile-img {
+  border-radius: 16px;
 }

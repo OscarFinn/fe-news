@@ -49,11 +49,13 @@ export default function ArticleList() {
   }
   return (
     <section className="articles-container">
-      <SortArticles
-        searchParams={searchParams}
-        setSearchParams={setSearchParams}
-      />
       <ul className="article-list">
+        <li className="sort-li">
+          <SortArticles
+            searchParams={searchParams}
+            setSearchParams={setSearchParams}
+          />
+        </li>
         {articles.map((article) => {
           return (
             <li className="article-card-list">

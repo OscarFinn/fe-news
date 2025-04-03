@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import ArticleVoteCard from "./ArticleVoteCard";
@@ -6,13 +6,18 @@ import ArticleVoteCard from "./ArticleVoteCard";
 import { handleDates } from "../utils";
 
 export default function ArticleCard({ articleFromList }) {
+  const nav = useNavigate();
   const [article, setArticle] = useState(articleFromList);
 
   const altText = article.title;
   const articleLink = `/article/${article.article_id}`;
 
   const { relativeTime } = handleDates(article.created_at);
-
+  function goToComments(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    nav(articleLink, { state: { scrollToComments: true } });
+  }
   return (
     <Link to={articleLink} className="card-link">
       <section className="article-card">
@@ -35,7 +40,7 @@ export default function ArticleCard({ articleFromList }) {
         </div>
         <div className="article-card-footer">
           <ArticleVoteCard article={article} setArticle={setArticle} />
-          <button className="goto-comments">
+          <button className="go-to-comments" onClick={(e) => goToComments(e)}>
             Comments ({article.comment_count})
           </button>
         </div>

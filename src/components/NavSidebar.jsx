@@ -41,12 +41,12 @@ export default function NavSidebar({ isOpen, setIsOpen }) {
               onClick={() => setIsOpen(false)}
               state={{ topics }}
             >
-              <h2>Topics</h2>
+              <h2>TOPICS</h2>
             </Link>
             {topics.map((topic) => {
               return (
                 <Link to={`/${topic.slug}`} onClick={() => setIsOpen(false)}>
-                  <p>{topic.slug}</p>
+                  <p>{topic.slug.toUpperCase()}</p>
                 </Link>
               );
             })}

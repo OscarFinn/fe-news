@@ -26,7 +26,10 @@ export default function DeleteComment({ id, comments, setComments }) {
 
   return (
     <div className="delete-div">
-      <button className="delete-button" onClick={(e) => handleDelete(e)}>
+      <button
+        className="comment-delete-button"
+        onClick={(e) => handleDelete(e)}
+      >
         <Bin />
       </button>
       {error ? <p className="delete-error">{error}</p> : null}

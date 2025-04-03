@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../contexts/User";
 
@@ -12,6 +12,8 @@ import { handleDates } from "../utils";
 import Back from "../assets/back.svg?react";
 
 export default function ArticlePage() {
+  const location = useLocation();
+
   const { user } = useContext(UserContext);
 
   const nav = useNavigate();
@@ -21,6 +23,8 @@ export default function ArticlePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const { article_id } = useParams();
+
+  const [isLoadingComments, setIsLoadingComments] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
@@ -37,6 +41,15 @@ export default function ArticlePage() {
         setIsLoading(false);
       });
   }, [article_id]);
+
+  useEffect(() => {
+    if (location.state?.scrollToComments && !isLoadingComments) {
+      const commentsSection = document.getElementById("comments");
+      if (commentsSection) {
+        commentsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  }, [location, isLoadingComments]);
 
   if (isLoading) {
     return <p>loading...</p>;
@@ -66,9 +79,13 @@ export default function ArticlePage() {
         <p>{article.body}</p>
         <ArticleVoteCard article={article} />
       </div>
-      <div className="article-commments">
+      <div className="article-commments" id="comments">
         <h2>Comments ({article.comment_count})</h2>
-        <CommentList article={article} />
+        <CommentList
+          isLoading={isLoadingComments}
+          setIsLoading={setIsLoadingComments}
+          article={article}
+        />
       </div>
     </section>
   );
