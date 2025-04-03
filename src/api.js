@@ -4,7 +4,7 @@ const apiClient = axios.create({
   baseURL: "https://be-news-olwx.onrender.com/api",
 });
 
-export function getArticles({ topic } = null) {
+export function getArticles(topic = null) {
   if (topic) {
     return apiClient.get(`/articles?topic=${topic}`).then((response) => {
       return response.data.articles;
