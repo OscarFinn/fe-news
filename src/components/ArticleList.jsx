@@ -18,7 +18,7 @@ export default function ArticleList() {
   useEffect(() => {
     setIsLoading(true);
     setIsError(false);
-    getArticles()
+    getArticles(topic)
       .then((articles) => {
         setArticles(articles);
       })
