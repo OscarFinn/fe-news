@@ -4,15 +4,22 @@ const apiClient = axios.create({
   baseURL: "https://be-news-olwx.onrender.com/api",
 });
 
-export function getArticles(topic = null) {
-  if (topic) {
-    return apiClient.get(`/articles?topic=${topic}`).then((response) => {
+export function getArticles(
+  topic = undefined,
+  sortBy = undefined,
+  order = undefined
+) {
+  return apiClient
+    .get("/articles", {
+      params: {
+        topic: topic,
+        sort_by: sortBy,
+        order: order,
+      },
+    })
+    .then((response) => {
       return response.data.articles;
     });
-  }
-  return apiClient.get("/articles").then((response) => {
-    return response.data.articles;
-  });
 }
 
 export function getArticle(id) {

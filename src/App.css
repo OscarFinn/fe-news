@@ -14,6 +14,9 @@
 
   --header-size: calc(20px + 2vw);
   --header-border-rad: 8px;
+
+  --button-background: #9b0024;
+  --button-border: #2d0014;
 }
 
 a:hover {
@@ -220,6 +223,14 @@ Header button:hover {
 
 .content-container {
   clip-path: polygon(0 0px, 100% 0px, 100% 100%, 0 100%);
+}
+.articles-container {
+  display: flex;
+  flex-direction: column;
+  width: 89vw;
+  max-width: calc(800px + 2 * (1em + 1vw));
+  margin-left: auto;
+  margin-right: auto;
 }
 ul {
   padding: 0;
@@ -585,7 +596,6 @@ form {
   width: 100%;
 }
 
-/* Dropdown content (hidden by default) */
 .dropdown-overlay {
   display: block;
   position: absolute;
@@ -593,7 +603,7 @@ form {
   min-width: 100%;
   border-radius: 5px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  max-height: 200px;
+  max-height: 400px;
   overflow-y: auto;
   z-index: 1000;
 }
@@ -674,4 +684,21 @@ form {
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   z-index: 20;
+}
+
+.select-sort {
+  position: relative;
+  width: 100%;
+  margin: "auto";
+  align-self: flex-start;
+  text-align: left;
+}
+#sort-input {
+  width: 25%;
+  min-width: 150px;
+  border-radius: 16px;
+  padding: 0.4em;
+  text-align: center;
+  background-color: var(--button-background);
+  border: 1px solid var(--button-border);
 }
