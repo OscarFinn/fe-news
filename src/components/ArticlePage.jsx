@@ -51,7 +51,9 @@ export default function ArticlePage() {
   const { date, time } = handleDates(article.created_at);
   return (
     <section className="article-page">
-      <DeleteArticle id={article.article_id} />
+      {user.username === article.author ? (
+        <DeleteArticle id={article.article_id} />
+      ) : null}
       <div className="article">
         <button className="back-button" onClick={() => nav(-1)}>
           <Back />
