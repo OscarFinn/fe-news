@@ -542,6 +542,7 @@ form {
 .article-card-list {
   position: relative;
   .delete-div {
+    top: 3%;
     button {
       width: 2em;
       height: 2em;

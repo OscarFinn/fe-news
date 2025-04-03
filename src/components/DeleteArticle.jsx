@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import X from "../assets/x.svg?react";
-import Rocket from "../assets/rocket.svg?react";
+import Bin from "../assets/bin.svg?react";
 
 export default function DeleteArticle({
   id,
@@ -44,7 +44,7 @@ export default function DeleteArticle({
   return (
     <div className="delete-div">
       <button className="delete-button" onClick={handleDelete}>
-        <X />
+        <Bin />
       </button>
       {error ? <p className="delete-error">{error}</p> : null}
     </div>

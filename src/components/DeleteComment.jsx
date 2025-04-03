@@ -2,6 +2,9 @@ import { deleteComment } from "../api";
 
 import { useState } from "react";
 
+import X from "../assets/x.svg?react";
+import Bin from "../assets/bin.svg?react";
+
 export default function DeleteComment({ id, comments, setComments }) {
   const [error, setError] = useState(null);
   function handleDelete() {
@@ -19,14 +22,7 @@ export default function DeleteComment({ id, comments, setComments }) {
   return (
     <div className="delete-div">
       <button className="delete-button" onClick={handleDelete}>
-        <svg viewBox="0 0 24 24">
-          <path
-            d="M6 6L18 18M6 18L18 6"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
-        </svg>
+        <Bin />
       </button>
       {error ? <p className="delete-error">{error}</p> : null}
     </div>
