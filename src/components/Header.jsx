@@ -2,7 +2,9 @@ import { UserContext } from "../contexts/User";
 import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-export default function Header() {
+import NavBurger from "../assets/navBurger.svg?react";
+
+export default function Header({ setSidebarOpen }) {
   const { user } = useContext(UserContext);
   const [scrolled, setScrolled] = useState(false);
 
@@ -20,36 +22,8 @@ export default function Header() {
 
   return (
     <header className={scrolled ? "header-scrolled" : ""}>
-      <button className="nav-menu">
-        <svg viewBox="0 0 100 100" width="100%" height="100%">
-          <line
-            x1="10"
-            y1="25"
-            x2="90"
-            y2="25"
-            stroke="currentColor"
-            stroke-width="10"
-            stroke-linecap="round"
-          />
-          <line
-            x1="10"
-            y1="50"
-            x2="90"
-            y2="50"
-            stroke="currentColor"
-            stroke-width="10"
-            stroke-linecap="round"
-          />
-          <line
-            x1="10"
-            y1="75"
-            x2="90"
-            y2="75"
-            stroke="currentColor"
-            stroke-width="10"
-            stroke-linecap="round"
-          />
-        </svg>
+      <button className="nav-menu" onClick={() => setSidebarOpen(true)}>
+        <NavBurger />
       </button>
       <Link to="/">
         <h1 id="header-main" data-text={"THE NEWS FRONTIER"}>

@@ -16,9 +16,6 @@ export default function ArticleList() {
   const topic = useParams();
 
   useEffect(() => {
-    if (topic) {
-      console.log("loading page for a specific topic");
-    }
     setIsLoading(true);
     setIsError(false);
     getArticles(topic)
