@@ -1,11 +1,12 @@
 import { useState, useEffect, useContext } from "react";
-import { Link, useSearchParams, useParams } from "react-router-dom";
+import { useSearchParams, useParams } from "react-router-dom";
 import { UserContext } from "../contexts/User";
 
 import { getArticles } from "../api";
 
 import ArticleCard from "./ArticleCard";
 import DeleteArticle from "./DeleteArticle";
+import SortArticles from "./SortArticles";
 
 export default function ArticleList() {
   const { user } = useContext(UserContext);
@@ -16,10 +17,13 @@ export default function ArticleList() {
 
   const { topic } = useParams();
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const sortBy = searchParams.get("sort_by");
+  const order = searchParams.get("order");
   useEffect(() => {
     setIsLoading(true);
     setIsError(false);
-    getArticles(topic)
+    getArticles(topic, sortBy, order)
       .then((articles) => {
         setArticles(articles);
       })
@@ -30,7 +34,7 @@ export default function ArticleList() {
       .finally(() => {
         setIsLoading(false);
       });
-  }, [topic]);
+  }, [topic, searchParams]);
 
   if (isLoading) {
     return <p>loading...</p>;
@@ -44,21 +48,27 @@ export default function ArticleList() {
     );
   }
   return (
-    <ul className="article-list">
-      {articles.map((article) => {
-        return (
-          <li className="article-card-list">
-            {user.username === article.author ? (
-              <DeleteArticle
-                id={article.article_id}
-                articles={articles}
-                setArticles={setArticles}
-              />
-            ) : null}
-            <ArticleCard key={article.article_id} articleFromList={article} />
-          </li>
-        );
-      })}
-    </ul>
+    <section>
+      <SortArticles
+        searchParams={searchParams}
+        setSearchParams={setSearchParams}
+      />
+      <ul className="article-list">
+        {articles.map((article) => {
+          return (
+            <li className="article-card-list">
+              {user.username === article.author ? (
+                <DeleteArticle
+                  id={article.article_id}
+                  articles={articles}
+                  setArticles={setArticles}
+                />
+              ) : null}
+              <ArticleCard key={article.article_id} articleFromList={article} />
+            </li>
+          );
+        })}
+      </ul>
+    </section>
   );
 }
