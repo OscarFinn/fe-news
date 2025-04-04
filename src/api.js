@@ -4,21 +4,26 @@ const apiClient = axios.create({
   baseURL: "https://be-news-olwx.onrender.com/api",
 });
 
-export function getArticles(
+export function getArticles({
   topic = undefined,
   sortBy = undefined,
-  order = undefined
-) {
+  order = undefined,
+  limit = undefined,
+  page = undefined,
+}) {
   return apiClient
     .get("/articles", {
       params: {
         topic: topic,
         sort_by: sortBy,
         order: order,
+        limit: limit,
+        p: page,
       },
     })
     .then((response) => {
-      return response.data.articles;
+      const { articles, total_count } = response.data;
+      return [articles, total_count];
     });
 }
 
