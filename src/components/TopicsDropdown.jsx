@@ -58,13 +58,13 @@ export default function TopicsDropdown({ setTopic }) {
           setSearch("");
           setIsOpen(true);
         }}
-        placeholder="--pick a topic--"
+        placeholder="Select a Topic"
         className="search-input"
-        required
+        readOnly
       />
 
       {isOpen && (
-        <div ref={dropdownRef} className="dropdown-overlay">
+        <div ref={dropdownRef} className="dropdown-overlay" id="topic-dropdown">
           {!isLoading ? (
             !error ? (
               filteredOptions.length > 0 ? (

@@ -46,7 +46,7 @@ export default function AddArticle() {
   }
 
   return (
-    <section>
+    <section className="add-article-container">
       <h2>Write an Article</h2>
       <form className="article-form" onSubmit={handleSubmit}>
         <label htmlFor="title">Title</label>

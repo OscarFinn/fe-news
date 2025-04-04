@@ -777,3 +777,43 @@ form {
   width: 30vw;
   max-width: 300px;
 }
+.add-article-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.article-form {
+  display: flex;
+  flex-direction: column;
+  background-color: #2d0014;
+  padding: 2em;
+  width: 80vw;
+  max-width: 800px;
+  border-radius: 16px;
+
+  input {
+    width: 100%;
+    margin: 1em;
+  }
+  input:focus {
+    outline: 2px solid var(--header-glow);
+  }
+  textarea {
+    width: 100%;
+    resize: vertical;
+    margin: 1em;
+  }
+  textarea:focus {
+    outline: 2px solid var(--header-glow);
+  }
+  button {
+    color: white;
+    margin: 1em;
+  }
+}
+
+#topic-dropdown .dropdown-item {
+  width: 25%;
+  min-width: 150px;
+}

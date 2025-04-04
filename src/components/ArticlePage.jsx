@@ -65,7 +65,6 @@ export default function ArticlePage() {
   const { date, time } = handleDates(article.created_at);
 
   const bodyArr = article.body.split(/\\n|\n/g);
-  console.log(bodyArr);
   return (
     <section className="article-page">
       {user.username === article.author ? (
