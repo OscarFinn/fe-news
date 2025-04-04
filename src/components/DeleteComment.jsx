@@ -8,7 +8,7 @@ import Bin from "../assets/bin.svg?react";
 export default function DeleteComment({ id, comments, setComments }) {
   const [error, setError] = useState(null);
 
-  function handleDelete() {
+  function handleDelete(e) {
     e.preventDefault();
 
     if (window.confirm("Are you sure you want to delete this comment?")) {
