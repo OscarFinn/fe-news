@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { getTopics } from "../api";
+import LoadingAnim from "./LoadingAnim";
 
 export default function NavSidebar({ isOpen, setIsOpen }) {
   const [topics, setTopics] = useState([]);
@@ -33,7 +34,7 @@ export default function NavSidebar({ isOpen, setIsOpen }) {
           Close Sidebar
         </button>
         {isLoading ? (
-          <p>loading topics...</p>
+          <LoadingAnim />
         ) : (
           <div className="sidebar-topics">
             <Link

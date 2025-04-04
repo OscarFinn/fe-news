@@ -10,7 +10,7 @@ export default function Header({ setSidebarOpen }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollThreshold = 60;
+      const scrollThreshold = 40;
       const isScrolled = window.scrollY > scrollThreshold;
       setScrolled(isScrolled);
     };

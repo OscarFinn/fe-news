@@ -5,6 +5,8 @@ import { postArticle } from "../api";
 import TopicsDropdown from "./TopicsDropdown";
 import { useNavigate } from "react-router-dom";
 
+import LoadingAnim from "./LoadingAnim";
+
 export default function AddArticle() {
   const nav = useNavigate();
   const { user } = useContext(UserContext);
@@ -40,7 +42,7 @@ export default function AddArticle() {
   }
 
   if (isPosting) {
-    return <p> Posting article...</p>;
+    return <LoadingAnim />;
   }
 
   return (
