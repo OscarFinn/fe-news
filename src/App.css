@@ -8,7 +8,7 @@
   --card-background: rgba(13, 6, 46, 0.6);
   --card-hover: rgba(34, 22, 88, 0.679);
   --article-card-separator: rgba(6, 1, 26, 0.8);
-  --link: #c2004d;
+  --selectable-hover: #c2004d;
 
   --sidebar-background: #420012;
 
@@ -22,7 +22,7 @@
 }
 
 a:hover {
-  color: var(--link);
+  color: var(--selectable-hover);
 }
 
 body {
@@ -367,7 +367,7 @@ li {
 }
 
 .text-link:hover {
-  color: var(--link);
+  color: var(--selectable-hover);
 }
 .article-page {
   position: relative;
@@ -641,7 +641,7 @@ form {
 }
 
 .dropdown-item:hover {
-  background-color: var(--link);
+  background-color: var(--selectable-hover);
 }
 
 .comment-container {
@@ -746,6 +746,10 @@ form {
   background-color: var(--button-background);
   border: 1px solid var(--button-border);
   font-weight: 800;
+}
+#sort-input:hover {
+  cursor: pointer;
+  background-color: var(--selectable-hover);
 }
 #sort-input:focus {
   outline: 2px solid var(--header-glow);
