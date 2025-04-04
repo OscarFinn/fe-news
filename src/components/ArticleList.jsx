@@ -114,8 +114,10 @@ export default function ArticleList() {
         })}
       </ul>
       {isLoadingMore ? <LoadingAnim /> : null}
-      {articles.length < count ? (
-        <button onClick={handleLoadMore}>Load More</button>
+      {articles.length < count && !isLoadingMore ? (
+        <button onClick={handleLoadMore} id="load-more-button">
+          Load More
+        </button>
       ) : null}
     </section>
   );

@@ -231,6 +231,7 @@ Header button:hover {
   flex-direction: column;
   width: 88%;
   max-width: calc(800px + 2em + 2vw);
+  margin-bottom: 4em;
 
   margin-left: auto;
   margin-right: auto;
@@ -816,4 +817,10 @@ form {
 #topic-dropdown .dropdown-item {
   width: 25%;
   min-width: 150px;
+}
+
+#load-more-button {
+  color: white;
+  font-weight: 800;
+  margin-top: 1.5em;
 }
