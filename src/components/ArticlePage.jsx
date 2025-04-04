@@ -63,6 +63,9 @@ export default function ArticlePage() {
     );
   }
   const { date, time } = handleDates(article.created_at);
+
+  const bodyArr = article.body.split(/\\n|\n/g);
+  console.log(bodyArr);
   return (
     <section className="article-page">
       {user.username === article.author ? (
@@ -77,7 +80,11 @@ export default function ArticlePage() {
         <p>
           posted on {date} at {time} by {article.author}
         </p>
-        <p>{article.body}</p>
+        <div>
+          {bodyArr.map((paragraph) => {
+            return <p>{paragraph}</p>;
+          })}
+        </div>
         <ArticleVoteCard article={article} />
       </div>
       <div className="article-commments" id="comments">
