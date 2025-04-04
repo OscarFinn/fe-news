@@ -3,6 +3,7 @@ import { getTopics } from "../api";
 import { Link, useLocation } from "react-router-dom";
 
 import TopicCard from "./TopicCard";
+import LoadingAnim from "./LoadingAnim";
 
 export default function TopicList() {
   const [topics, setTopics] = useState([]);
@@ -29,7 +30,7 @@ export default function TopicList() {
   }, [location.state]);
 
   if (isLoading) {
-    return <p>loading...</p>;
+    return <LoadingAnim />;
   }
 
   if (error) {

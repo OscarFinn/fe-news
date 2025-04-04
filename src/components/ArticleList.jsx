@@ -8,6 +8,8 @@ import ArticleCard from "./ArticleCard";
 import DeleteArticle from "./DeleteArticle";
 import SortArticles from "./SortArticles";
 
+import LoadingAnim from "./LoadingAnim";
+
 export default function ArticleList() {
   const { user } = useContext(UserContext);
   const [articles, setArticles] = useState([]);
@@ -37,7 +39,7 @@ export default function ArticleList() {
   }, [topic, searchParams]);
 
   if (isLoading) {
-    return <p>loading...</p>;
+    return <LoadingAnim />;
   }
 
   if (isError) {

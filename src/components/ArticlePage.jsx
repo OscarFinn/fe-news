@@ -10,6 +10,7 @@ import DeleteArticle from "./DeleteArticle";
 import { handleDates } from "../utils";
 
 import Back from "../assets/back.svg?react";
+import LoadingAnim from "./LoadingAnim";
 
 export default function ArticlePage() {
   const location = useLocation();
@@ -52,7 +53,7 @@ export default function ArticlePage() {
   }, [location, isLoadingComments]);
 
   if (isLoading) {
-    return <p>loading...</p>;
+    return <LoadingAnim />;
   }
   if (isError) {
     return (
