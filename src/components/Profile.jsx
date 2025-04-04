@@ -8,12 +8,13 @@ export default function Profile() {
   const { username } = useParams();
   const { user } = useContext(UserContext);
   const [profileUser, setProfileUser] = useState({});
-
+  console.log(username);
+  console.log(user.username);
   useEffect(() => {
-    const profileUser = {};
-    if (!user.username === username) {
-      getUser(username).then((response) => {
-        setProfileUser(response.data.user);
+    if (user.username !== username) {
+      console.log("getting user", username);
+      getUser(username).then((fetchedUser) => {
+        setProfileUser(fetchedUser);
       });
     } else {
       setProfileUser(user);
